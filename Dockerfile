@@ -1,4 +1,4 @@
-FROM logankoester/archlinux
+FROM cviebig/arch-base
 MAINTAINER logan@logankoester.com
 
 # Install Docker from Arch repos
