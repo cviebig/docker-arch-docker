@@ -1,16 +1,8 @@
-FROM ubuntu:14.04
-MAINTAINER jerome.petazzoni@docker.com
+FROM logankoester/archlinux
+MAINTAINER logan@logankoester.com
 
-# Let's start with some basic stuff.
-RUN apt-get update -qq && apt-get install -qqy \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    lxc \
-    iptables
-    
-# Install Docker from Docker Inc. repositories.
-RUN curl -sSL https://get.docker.com/ubuntu/ | sh
+# Install Docker from Arch repos
+RUN pacman -S --noprogressbar --noconfirm --needed ca-certificates lxc e2fsprogs docker
 
 # Install the magic wrapper.
 ADD ./wrapdocker /usr/local/bin/wrapdocker
